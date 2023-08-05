@@ -1,8 +1,8 @@
 
 import React from 'react'
-import { graphql } from 'gatsby'
 
-exports.frontmatter = {
+
+export const frontmatter = {
     title: 'my title',
     description: 'my description',
 }
@@ -14,9 +14,6 @@ const NewPage = () => {
         <div>Hello, World!</div>
     );
 };
-
-
-
 
 
 export default NewPage;

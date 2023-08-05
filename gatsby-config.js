@@ -7,15 +7,29 @@ module.exports = {
     description: `Your site desccription`,
     siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: ["gatsby-plugin-emotion", "gatsby-plugin-sitemap", "gatsby-plugin-mdx", {
-    resolve: `gatsby-plugin-google-gtag`,
-    options: {
-      trackingIds: [
-        "GA-TRACKING-ID", // Google Analytics / GA
+  plugins: ["gatsby-plugin-emotion", "gatsby-plugin-mdx",
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: `${__dirname}/src/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: `${__dirname}/src/mdx`,
+      },
+    },
 
-      ]
-    }
-  }, {
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "GA-TRACKING-ID", // Google Analytics / GA
+
+        ]
+      }
+    }, {
       resolve: 'gatsby-source-filesystem',
       options: {
         "name": "pages",
@@ -37,6 +51,37 @@ module.exports = {
       }
     },
     "gatsby-transformer-javascript-frontmatter",
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        query: `
+        {
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+        }
+        `
+        ,
+        resolveSiteUrl: () => `https://www.yourdomain.tld`,
+        resolvePages: ({
+          allSitePage: { nodes: allPages }
+        }) => {
+
+          return allPages.map(page => {
+            return { ...page }
+          })
+        },
+        serialize: ({ path }) => {
+          console.log(path)
+          return {
+            url: path,
+
+          }
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
