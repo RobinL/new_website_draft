@@ -1,11 +1,15 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
+const siteUrl = process.env.URL || `https://www.robinlinacre.com`
+
+
 module.exports = {
   siteMetadata: {
-    title: `robinlinacre`,
-    description: `Your site desccription`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `> robinlinacre`,
+    description: `Robin Linacre's blog: Data Science, Engineering and the Environment`,
+    siteUrl: siteUrl
   },
   plugins: ["gatsby-plugin-emotion", "gatsby-plugin-mdx",
     {
@@ -64,7 +68,7 @@ module.exports = {
         }
         `
         ,
-        resolveSiteUrl: () => `https://www.yourdomain.tld`,
+        resolveSiteUrl: () => siteUrl,
         resolvePages: ({
           allSitePage: { nodes: allPages }
         }) => {
