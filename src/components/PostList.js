@@ -1,52 +1,41 @@
-// src/components/PostList.js
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import { merge_frontmatter } from "../utils/merge"
-
+import { graphql, useStaticQuery, Link } from 'gatsby';
 
 const PostList = () => {
-    const data = useStaticQuery(graphql`
-    query {
-      allJavascriptFrontmatter {
-        edges {
-          node {
-            frontmatter {
-              title
-              description
-            }
-          }
-        }
+  const data = useStaticQuery(graphql`
+query {
+  allMdx {
+    nodes {
+      fields {
+        slug
       }
-      allMdx {
-        nodes {
-          frontmatter {
-            title
-            description
-          }
-        }
+      frontmatter {
+        title
+        description
+        date
       }
     }
+  }
+}
   `);
 
-    const javascriptPosts = data.allJavascriptFrontmatter;
-    const mdxPosts = data.allMdx;
+  const mdxPosts = data.allMdx.nodes;
 
-    const all_posts = merge_frontmatter(javascriptPosts, mdxPosts)
-
-    return (
-        <div>
-            <h1 className="text-3xl font-bold underline">Post List</h1>
-            <ul>
-                {all_posts.map(frontm => (
-                    <li key={frontm.title}>
-                        <h2>{frontm.title}</h2>
-                        <p>{frontm.description}</p>
-                    </li>
-                ))}
-
-            </ul>
-        </div>
-    );
+  return (
+    <div>
+      <h1 className="text-3xl font-bold underline">Post List</h1>
+      <ul>
+        {mdxPosts.map(node => (
+          <li key={node.frontmatter.title}>
+            <Link to={`${node.fields.slug}`}>
+              <h2>{node.frontmatter.title}</h2>
+            </Link>
+            <p>{node.frontmatter.description}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default PostList;

@@ -4,11 +4,6 @@
 
 const siteUrl = process.env.URL || `https://www.robinlinacre.com`
 
-function merge_frontmatter(allJavascriptFrontmatter, allMdx) {
-  let a = allJavascriptFrontmatter.edges.map(edge => edge.node.frontmatter);
-  let b = allMdx.nodes.map(node => node.frontmatter);
-  return [...a, ...b];
-}
 
 
 module.exports = {
@@ -28,19 +23,6 @@ module.exports = {
 
         ]
       }
-    }, {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        "name": "pages",
-        "path": "./src/pages/"
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        "name": "posts",
-        "path": "./src/posts/"
-      }
     },
     {
       resolve: 'gatsby-source-filesystem',
@@ -52,16 +34,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-page-creator`,
       options: {
-        path: `${__dirname}/src/posts`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
         path: `${__dirname}/src/mdx`,
       },
     },
-    "gatsby-transformer-javascript-frontmatter",
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
@@ -98,34 +73,26 @@ module.exports = {
       options: {
         feeds: [
           {
-            serialize: ({ query: { site, allJavascriptFrontmatter, allMdx } }) => {
-              const frontm_list = merge_frontmatter(allJavascriptFrontmatter, allMdx)
+            serialize: ({ query: { site, allMdx } }) => {
 
-              return frontm_list.map(frontmatter => Object.assign({}, {
-                description: frontmatter.title,
-                date: frontmatter.title,
-                url: site.siteMetadata.siteUrl + frontmatter.title,
-                guid: site.siteMetadata.siteUrl + frontmatter.title,
-                custom_elements: [{ "content:encoded": frontmatter.title }],
+              const nodes = allMdx.nodes
+
+              return nodes.map(node => Object.assign({}, {
+                description: node.frontmatter.title,
+                date: node.frontmatter.date,
+                url: site.siteMetadata.siteUrl + node.frontmatter.title,
+                guid: site.siteMetadata.siteUrl + node.frontmatter.title,
+                custom_elements: [{ "content:encoded": node.frontmatter.title }],
               }))
             },
             query: `
             {
-              allJavascriptFrontmatter {
-                edges {
-                  node {
-                    frontmatter {
-                      title
-                      description
-                    }
-                  }
-                }
-              }
               allMdx {
                 nodes {
                   frontmatter {
                     title
                     description
+                    date
                   }
                 }
               }
