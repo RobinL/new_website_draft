@@ -4,6 +4,8 @@
 
 const siteUrl = process.env.URL || `https://www.robinlinacre.com`
 
+const merge_frontmatter = require('./src/utils/merge').merge_frontmatter;
+
 
 module.exports = {
   siteMetadata: {
@@ -12,18 +14,7 @@ module.exports = {
     siteUrl: siteUrl
   },
   plugins: ["gatsby-plugin-emotion", "gatsby-plugin-mdx",
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: `${__dirname}/src/posts`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: `${__dirname}/src/mdx`,
-      },
-    },
+
 
     {
       resolve: `gatsby-plugin-google-gtag`,
@@ -53,6 +44,18 @@ module.exports = {
         "name": "mdx",
         "path": "./src/mdx/"
       }
+    },
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: `${__dirname}/src/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: `${__dirname}/src/mdx`,
+      },
     },
     "gatsby-transformer-javascript-frontmatter",
     {
@@ -91,29 +94,37 @@ module.exports = {
       options: {
         feeds: [
           {
-            serialize: ({ query: { site, allCombinedFrontmatter } }) => {
+            serialize: ({ query: { site, allJavascriptFrontmatter, allMdx } }) => {
+              const frontm_list = merge_frontmatter(allJavascriptFrontmatter, allMdx)
 
-              return allCombinedFrontmatter.nodes.map(node => {
-                return Object.assign({}, {
-                  description: node.title,
-                  date: node.title,
-                  url: site.siteMetadata.siteUrl + node.title,
-                  guid: site.siteMetadata.siteUrl + node.title,
-                  custom_elements: [{ "content:encoded": node.title }],
-                })
-              })
-
-
+              return frontm_list.map(frontmatter => Object.assign({}, {
+                description: frontmatter.title,
+                date: frontmatter.title,
+                url: site.siteMetadata.siteUrl + frontmatter.title,
+                guid: site.siteMetadata.siteUrl + frontmatter.title,
+                custom_elements: [{ "content:encoded": frontmatter.title }],
+              }))
             },
             query: `
             {
-              allCombinedFrontmatter {
-                nodes {
-                  description
-                  title
+              allJavascriptFrontmatter {
+                edges {
+                  node {
+                    frontmatter {
+                      title
+                      description
+                    }
+                  }
                 }
               }
-
+              allMdx {
+                nodes {
+                  frontmatter {
+                    title
+                    description
+                  }
+                }
+              }
             }
 
             `,
@@ -122,6 +133,6 @@ module.exports = {
           },
         ],
       },
-    },
+    }
   ]
 };
