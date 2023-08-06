@@ -1,6 +1,8 @@
 // src/components/PostList.js
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { merge_frontmatter } from "../utils/merge"
+
 
 const PostList = () => {
     const data = useStaticQuery(graphql`
@@ -26,25 +28,22 @@ const PostList = () => {
     }
   `);
 
-    const javascriptPosts = data.allJavascriptFrontmatter.edges;
-    const mdxPosts = data.allMdx.nodes;
+    const javascriptPosts = data.allJavascriptFrontmatter;
+    const mdxPosts = data.allMdx;
+
+    const all_posts = merge_frontmatter(javascriptPosts, mdxPosts)
 
     return (
         <div>
             <h1>Post List</h1>
             <ul>
-                {javascriptPosts.map(({ node }) => (
-                    <li key={node.frontmatter.title}>
-                        <h2>{node.frontmatter.title}</h2>
-                        <p>{node.frontmatter.description}</p>
+                {all_posts.map(frontm => (
+                    <li key={frontm.title}>
+                        <h2>{frontm.title}</h2>
+                        <p>{frontm.description}</p>
                     </li>
                 ))}
-                {mdxPosts.map(({ frontmatter }) => (
-                    <li key={frontmatter.title}>
-                        <h2>{frontmatter.title}</h2>
-                        <p>{frontmatter.description}</p>
-                    </li>
-                ))}
+
             </ul>
         </div>
     );
