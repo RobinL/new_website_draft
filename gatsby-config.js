@@ -17,7 +17,7 @@ module.exports = {
     description: `Robin Linacre's blog: Data Science, Engineering and the Environment`,
     siteUrl: siteUrl
   },
-  plugins: ["gatsby-plugin-emotion", "gatsby-plugin-mdx",
+  plugins: ["gatsby-plugin-postcss", "gatsby-plugin-mdx",
 
 
     {

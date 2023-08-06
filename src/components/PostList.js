@@ -35,7 +35,7 @@ const PostList = () => {
 
     return (
         <div>
-            <h1>Post List</h1>
+            <h1 className="text-3xl font-bold underline">Post List</h1>
             <ul>
                 {all_posts.map(frontm => (
                     <li key={frontm.title}>
