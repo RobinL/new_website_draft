@@ -1,6 +1,6 @@
 exports.onCreateNode = ({ node, actions, createNodeId, createContentDigest }) => {
     const { createNode } = actions
-    console.log(node)
+
     // Check if the node is either JavascriptFrontmatter or Mdx
     if (node.internal.type === 'JavascriptFrontmatter' || node.internal.type === 'Mdx') {
         // Get the title and description from the frontmatter

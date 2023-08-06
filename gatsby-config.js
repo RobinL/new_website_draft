@@ -91,51 +91,29 @@ module.exports = {
       options: {
         feeds: [
           {
-            serialize: ({ query: { site, allJavascriptFrontmatter, allMdx } }) => {
-              console.log(allJavascriptFrontmatter)
-              console.log(allMdx)
-              let a = allJavascriptFrontmatter.edges.map(edge => {
+            serialize: ({ query: { site, allCombinedFrontmatter } }) => {
+
+              return allCombinedFrontmatter.nodes.map(node => {
                 return Object.assign({}, {
-                  description: edge.node.frontmatter.title,
-                  date: edge.node.frontmatter.title,
-                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.title,
-                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.title,
-                  custom_elements: [{ "content:encoded": edge.node.frontmatter.title }],
+                  description: node.title,
+                  date: node.title,
+                  url: site.siteMetadata.siteUrl + node.title,
+                  guid: site.siteMetadata.siteUrl + node.title,
+                  custom_elements: [{ "content:encoded": node.title }],
                 })
               })
 
-              let b = allMdx.nodes.map(node => {
-                return Object.assign({}, {
-                  description: node.frontmatter.title,
-                  date: node.frontmatter.title,
-                  url: site.siteMetadata.siteUrl + node.frontmatter.title,
-                  guid: site.siteMetadata.siteUrl + node.frontmatter.title,
-                  custom_elements: [{ "content:encoded": node.frontmatter.title }],
-                })
-              })
 
-              return a.concat(b)
             },
             query: `
             {
-              allJavascriptFrontmatter {
-                edges {
-                  node {
-                    frontmatter {
-                      title
-                      description
-                    }
-                  }
-                }
-              }
-              allMdx {
+              allCombinedFrontmatter {
                 nodes {
-                  frontmatter {
-                    title
-                    description
-                  }
+                  description
+                  title
                 }
               }
+
             }
 
             `,
