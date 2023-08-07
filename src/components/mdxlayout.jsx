@@ -2,8 +2,8 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 export function Layout({ children }) {
-    // Use useStaticQuery to get the frontmatter data
-    const data = useStaticQuery(graphql`
+  // Use useStaticQuery to get the frontmatter data
+  const data = useStaticQuery(graphql`
     query {
       mdx {
         frontmatter {
@@ -13,19 +13,22 @@ export function Layout({ children }) {
     }
   `);
 
-    const { description } = data.mdx.frontmatter;
+  const { description } = data.mdx.frontmatter;
 
-    return (
-        <>
-            <header>My Header</header>
+  return (
+    <>
 
-            <div>Description: {description}</div>
+      <header>My Header</header>
 
-            {children}
+      <div class="mx-auto w-full max-w-md" id="mdx-container-div">
 
-            <footer>My Footer</footer>
-        </>
-    );
+        {children}
+
+      </div>
+      <footer>My Footer</footer>
+
+    </>
+  );
 }
 
 export default Layout;
