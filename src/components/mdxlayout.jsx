@@ -1,8 +1,9 @@
-import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+
+// https://www.gatsbyjs.com/docs/how-to/routing/customizing-components/
 
 export function Layout({ children }) {
-  // Use useStaticQuery to get the frontmatter data
   const data = useStaticQuery(graphql`
     query {
       mdx {
@@ -17,16 +18,17 @@ export function Layout({ children }) {
 
   return (
     <>
-
       <header>My Header</header>
 
-      <div class="mx-auto w-full max-w-md" id="mdx-container-div">
+      <p>{description}</p>
 
+      <div
+        className="text-base mx-auto w-full max-w-prose"
+        id="mdx-container-div"
+      >
         {children}
-
       </div>
       <footer>My Footer</footer>
-
     </>
   );
 }

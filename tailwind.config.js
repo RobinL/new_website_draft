@@ -7,7 +7,11 @@ module.exports = {
     "./src/mdx/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'serif': ['Source Serif Pro', 'system-ui', 'Georgia', 'serif'],
+      },
+    },
   },
   plugins: [],
 }

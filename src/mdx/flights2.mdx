@@ -1,0 +1,30 @@
+---
+title: Flights
+description: flights page
+date: 2020-02-03
+---
+
+export { Layout as default } from '../components/mdxlayout';
+
+import notebook from '@robinl/my-flights';
+import ObservableNotebook from '../components/ObservableNotebook';
+
+# Here is a H1
+
+text
+
+## Here is a H2
+
+text
+
+### Here is a H3
+
+text
+
+### Here is a H4
+
+text
+
+hi there
+
+<ObservableNotebook notebook={notebook} cells={['blurb', 'chart']} />
