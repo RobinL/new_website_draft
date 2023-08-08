@@ -13,8 +13,15 @@ module.exports = {
     siteUrl: siteUrl
   },
   plugins: ["gatsby-plugin-postcss", "gatsby-plugin-mdx",
-
-
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `source serif pro\:600` // default weight 400
+        ],
+        display: 'swap'
+      }
+    },
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
