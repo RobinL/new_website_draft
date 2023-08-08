@@ -1,0 +1,38 @@
+---
+title: Carbon electric car
+description: car page
+date: 2020-02-03
+---
+
+export { Layout as default } from '../components/mdxlayout';
+
+import notebook from '@robinl/the-carbon-impact-of-switiching-to-an-electric-car';
+import ObservableNotebook from '../components/ObservableNotebook';
+
+export const output_order = [
+    'title',
+    'para_1',
+    'title_assumptions',
+    'ice_mileage_md',
+    'elec_mileage_md',
+    'total_emissions_ice_md',
+    'total_emissions_elec_md',
+    'ice_vehicle_emissions_md',
+    'uplift_md',
+    'elec_miles_kwh_md',
+    'carbon_intensity_md',
+    'results_title',
+    'results_para_1',
+    'results_chart',
+    'results_table',
+    'results_carbon_offset',
+    'replace_para_1',
+    'replace_para_2',
+    'replace_para_3',
+    'breakeven_electric',
+    'breakeven_electric_chart',
+    'further_considerations',
+    'annex',
+];
+
+<ObservableNotebook notebook={notebook} cells={output_order} />

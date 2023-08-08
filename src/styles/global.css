@@ -10,7 +10,7 @@ h4 {
 }
 
 h1 {
-    @apply text-4xl leading-tight text-gray-900;
+    @apply text-3xl leading-tight text-gray-900 mb-6;
 }
 
 h2 {
@@ -26,5 +26,53 @@ h4 {
 }
 
 p {
-    @apply text-base leading-relaxed text-gray-700;
+    @apply text-base mb-4 leading-relaxed text-gray-700;
+}
+
+ol {
+    @apply list-decimal list-outside  pl-5;
+}
+
+ul {
+    @apply list-disc list-outside pl-5;
+}
+
+li {
+    @apply text-base mb-2 leading-relaxed text-gray-700;
+}
+
+table {
+    @apply w-full border-collapse bg-white text-sm mb-4;
+}
+
+th {
+    @apply text-left font-semibold text-gray-700;
+}
+
+td {
+    @apply text-gray-700;
+}
+
+thead th {
+    @apply border-b border-gray-300;
+}
+
+tbody tr:not(:last-child) {
+    @apply border-b border-gray-300;
+}
+
+input[type='number'] {
+    @apply w-16 text-center text-xs border border-gray-300 rounded p-1;
+}
+
+select {
+    @apply border border-gray-300 text-xs  rounded p-1 bg-white;
+}
+
+.observablehq {
+    @apply mb-1;
+}
+
+.observablehq code {
+    @apply text-sm;
 }
