@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'serif': ['Source Serif Pro', 'system-ui', 'Georgia', 'serif'],
+        'serif': ['"Source Serif Pro"', 'system-ui', 'Georgia', 'serif'],
       },
     },
   },
