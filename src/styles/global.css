@@ -41,6 +41,14 @@ li {
     @apply text-base mb-2 leading-relaxed text-gray-700;
 }
 
+a {
+    @apply text-blue-500 no-underline hover:underline;
+}
+
+a:focus {
+    @apply outline-none ring-2 ring-blue-200;
+}
+
 table {
     @apply w-full border-collapse bg-white text-sm mb-4;
 }
