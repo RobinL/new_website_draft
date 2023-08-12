@@ -14,11 +14,11 @@ h1 {
 }
 
 h2 {
-    @apply text-3xl leading-snug text-gray-800;
+    @apply text-2xl leading-snug text-gray-800;
 }
 
 h3 {
-    @apply text-2xl leading-relaxed text-gray-700;
+    @apply text-xl leading-relaxed text-gray-700;
 }
 
 h4 {

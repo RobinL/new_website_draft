@@ -8,5 +8,13 @@
   "bracketSpacing": true,
   "jsxBracketSameLine": false,
   "arrowParens": "avoid",
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  "overrides": [
+    {
+      "files": "*.mdx",
+      "options": {
+        "parser": "none"
+      }
+    }
+  ]
 }
