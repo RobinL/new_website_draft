@@ -1,11 +1,14 @@
 ---
-title: Flights
-description: flights page
-date: 2020-02-03
+title: My flights
+description: Flights page
+date: 1999-01-01
 ---
-export {Layout as default} from '../components/mdxlayout'
-import MyFlights from "../observable/flights.jsx"
 
-<div>
-<MyFlights/>
-</div>
+export { Layout as default } from '../components/mdxlayout';
+
+import notebook from '@robinl/my-flights';
+import ObservableNotebook from '../components/ObservableNotebook';
+
+export const output_order = ['blurb', 'chart'];
+
+<ObservableNotebook notebook={notebook} cells={output_order} />
