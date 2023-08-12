@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Header from './Header';
+import Footer from './Footer';
 
 // https://www.gatsbyjs.com/docs/how-to/routing/customizing-components/
 
@@ -23,7 +24,7 @@ export function Layout({ children }) {
                 <Header />
 
                 <div id="mdx-container-div">{children}</div>
-                <footer>My Footer</footer>
+                <Footer />
             </div>
         </>
     );
