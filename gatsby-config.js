@@ -17,7 +17,8 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `source serif pro\:600` // default weight 400
+          `source serif pro\:600`,
+          `source sans pro\:400`
         ],
         display: 'swap'
       }

@@ -33,6 +33,15 @@ const PostList = () => {
         }, {}),
     };
 
+    // Order of the headers
+    const headerOrder = [
+        'latest',
+        'data',
+        'other',
+        'probabilistic_linkage',
+        'energy',
+    ];
+
     // Lookup for category titles
     const categoryTitles = {
         latest: 'Latest Posts',
@@ -44,18 +53,18 @@ const PostList = () => {
 
     return (
         <div>
-            {Object.keys(postsByCategory).map(categoryKey => (
+            {headerOrder.map(categoryKey => (
                 <div key={categoryKey} className="mb-6">
                     <h2 className="text-xl font-bold mb-2">
                         {categoryTitles[categoryKey] || categoryKey}
                     </h2>
                     <div className="">
-                        {postsByCategory[categoryKey].map(node => (
+                        {postsByCategory[categoryKey]?.map(node => (
                             <div
                                 key={node.frontmatter.title}
                                 className="pb-2 flex"
                             >
-                                <div className="text-base w-24 text-gray-500">
+                                <div className="text-base text-gray-500 w-20 font-source-sans">
                                     {node.frontmatter.post_date}
                                 </div>
                                 <div className="text-base">
