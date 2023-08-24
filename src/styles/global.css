@@ -42,7 +42,7 @@ li {
 }
 
 a {
-    @apply text-blue-500 no-underline hover:underline;
+    @apply text-blue-600 no-underline hover:underline;
 }
 
 a:focus {
@@ -83,4 +83,26 @@ select {
 
 .observablehq code {
     @apply text-sm;
+}
+
+#vg-tooltip-element.vg-tooltip {
+    @apply bg-white text-xs shadow-md rounded p-1 mb-0;
+    max-width: 250px;
+}
+
+#vg-tooltip-element.vg-tooltip table {
+    @apply table-fixed w-full mb-0;
+}
+
+#vg-tooltip-element.vg-tooltip tbody,
+#vg-tooltip-element.vg-tooltip tr {
+    @apply m-0 p-0;
+}
+
+#vg-tooltip-element.vg-tooltip td.key {
+    @apply px-0.5 py-0.5 text-right  m-0;
+}
+
+#vg-tooltip-element.vg-tooltip td.value {
+    @apply px-0.5 py-0.5 text-left m-0;
 }

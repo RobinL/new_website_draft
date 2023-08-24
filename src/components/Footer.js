@@ -6,7 +6,7 @@ const Footer = () => {
             <hr className="border-gray-300" />
             <footer className="mt-4">
                 <p className="text-base text-gray-700">
-                    <a href="/">Back to homepage.</a>
+                    <a href="/">Back home</a>
                 </p>
                 <p className="text-base text-gray-700">
                     This site is built using{' '}
