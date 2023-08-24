@@ -19,7 +19,7 @@ const Header = () => {
                         About
                     </Link>
                     <Link
-                        to="/home"
+                        to="/"
                         className="text-base font-normal text-gray-600 hover:text-gray-700 transition ease-in duration-200"
                     >
                         Home
