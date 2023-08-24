@@ -11,7 +11,7 @@
     background-size: 300% 100%;
     -webkit-background-clip: text;
     background-clip: text;
-    animation: shimmer 10s infinite;
+    animation: shimmer 20s infinite;
 }
 
 @keyframes shimmer {
@@ -19,6 +19,9 @@
         background-position: 0% 0;
     }
     50% {
+        background-position: 0% 0;
+    }
+    95% {
         background-position: -150% 0;
     }
     100% {
