@@ -1,0 +1,27 @@
+.shimmer-text {
+    color: transparent;
+    background: linear-gradient(
+        90deg,
+        black 20%,
+        #440154,
+        #21908d,
+        #fde725,
+        black 80%
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shimmer 10s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0% 0;
+    }
+    50% {
+        background-position: -150% 0;
+    }
+    100% {
+        background-position: -150% 0;
+    }
+}

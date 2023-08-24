@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { FaTwitter, FaGithub, FaLinkedin, FaHome } from 'react-icons/fa';
-
+import '../styles/shimmer.css';
 const Header = () => {
     return (
         <div>
             <div className="flex justify-between items-center py-4">
                 <div className="flex items-center space-x-4">
-                    <div className="text-base font-mono font-semibold">
+                    <div className="text-base font-mono font-semibold shimmer-text">
                         &gt;robinlinacre
                     </div>
                 </div>
