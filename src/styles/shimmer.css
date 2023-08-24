@@ -2,11 +2,11 @@
     color: transparent;
     background: linear-gradient(
         90deg,
-        black 20%,
+        black 40%,
         #440154,
         #21908d,
         #fde725,
-        black 80%
+        black 60%
     );
     background-size: 300% 100%;
     -webkit-background-clip: text;
@@ -16,15 +16,12 @@
 
 @keyframes shimmer {
     0% {
-        background-position: 0% 0;
+        background-position: 150% 0;
     }
     50% {
-        background-position: 0% 0;
-    }
-    95% {
-        background-position: -150% 0;
+        background-position: 150% 0;
     }
     100% {
-        background-position: -150% 0;
+        background-position: -50% 0;
     }
 }
