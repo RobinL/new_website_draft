@@ -31,6 +31,11 @@ const AboutMe = () => {
                     and prior to that, I was a government economist.
                 </p>
                 <p className="text-base text-gray-600 mb-4">
+                    I'm love open source and believe working on software that
+                    can improve data is one of the most effective ways for me to
+                    help others.
+                </p>
+                <p className="text-base text-gray-600 mb-4">
                     I'm a trustee and secretary of{' '}
                     <a
                         href="https://www.givedirectly.org.uk/"
@@ -43,9 +48,15 @@ const AboutMe = () => {
                     living in extreme poverty. Donate here:{' '}
                     <a href="https://www.givedirectly.org/uk/">UK</a> |{' '}
                     <a href="https://www.givedirectly.org.uk/donate">
-                        rest of world
+                        rest of world.
                     </a>
-                    .
+                </p>
+                <p className="text-base text-gray-600 mb-4">
+                    I'm also a{' '}
+                    <a href="https://www.givingwhatwecan.org/pledge">
+                        Giving What We Can
+                    </a>{' '}
+                    pledgee.
                 </p>
 
                 <p className="text-base text-gray-600 mb-4">
