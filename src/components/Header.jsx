@@ -8,7 +8,7 @@ import {
     FaInfoCircle,
 } from 'react-icons/fa';
 
-import ResponsiveLink from './responsive_icon';
+import ResponsiveLink from './ResponsiveIcon';
 
 import '../styles/shimmer.css';
 const Header = () => {
