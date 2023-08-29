@@ -40,6 +40,13 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "name": "non_post_mdx",
+        "path": "./src/other/"
+      }
+    },
+    {
       resolve: `gatsby-plugin-page-creator`,
       options: {
         path: `${__dirname}/src/mdx`,
