@@ -17,7 +17,12 @@ const Header = () => {
             <div className="flex justify-between items-center py-4">
                 <div className="flex items-center space-x-4">
                     <div className="text-base font-mono font-semibold shimmer-text">
-                        &gt;robinlinacre
+                        <Link
+                            to="/"
+                            className="text-base font-mono font-semibold shimmer-text"
+                        >
+                            &gt;robinlinacre
+                        </Link>
                     </div>
                 </div>
                 <div className="flex items-center space-x-3">
