@@ -3,10 +3,12 @@ import React from 'react';
 const CategoryFilter = ({ categories, selectedCategory, onSelectCategory }) => {
     return (
         <div className="mb-5 text-xs">
-            <strong className="mr-2">Filter:</strong>
+            <strong className="mr-2 text-sm">Filter:</strong>
             <button
-                className={`px-1 py-2 mr-2 capitalize ${
-                    selectedCategory === 'all' ? 'bg-gray-300' : 'bg-white'
+                className={`px-2 py-1 mr-2 rounded-md transition ease-in-out duration-200 hover:shadow-lg capitalize ${
+                    selectedCategory === 'all'
+                        ? 'bg-gray-300 text-white'
+                        : 'bg-white text-blue-600 hover:bg-gray-200'
                 }`}
                 onClick={() => onSelectCategory('all')}
             >
@@ -15,10 +17,10 @@ const CategoryFilter = ({ categories, selectedCategory, onSelectCategory }) => {
             {categories.map(category => (
                 <button
                     key={category}
-                    className={`px-1 py-2 mr-2 capitalize ${
+                    className={`px-2 py-1 mr-2 rounded-md transition ease-in-out duration-200 hover:shadow-lg capitalize ${
                         selectedCategory === category
-                            ? 'bg-gray-300'
-                            : 'bg-white'
+                            ? 'bg-gray-300 text-white'
+                            : 'bg-white text-blue-600 hover:bg-gray-200'
                     }`}
                     onClick={() => onSelectCategory(category)}
                 >
