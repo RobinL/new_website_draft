@@ -7,7 +7,12 @@ import CategoryFilter from './CategoryFilter';
 const usePosts = () => {
     const data = useStaticQuery(graphql`
         query {
-            allMdx(sort: { fields: frontmatter___post_date, order: DESC }) {
+            allMdx(
+                filter: {
+                    frontmatter: { post_category: { ne: "non_blog_post" } }
+                }
+                sort: { fields: frontmatter___post_date, order: DESC }
+            ) {
                 nodes {
                     fields {
                         slug
