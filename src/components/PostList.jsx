@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import CategoryPostList from './CategoryPostList';
 
-const PostList = () => {
-    const [selectedCategory, setSelectedCategory] = useState('all'); // Added this line
-
+// GraphQL query logic
+const usePosts = () => {
     const data = useStaticQuery(graphql`
         query {
             allMdx(sort: { fields: frontmatter___post_date, order: DESC }) {
@@ -23,35 +22,38 @@ const PostList = () => {
         }
     `);
 
-    const mdxPosts = data.allMdx.nodes;
+    return data.allMdx.nodes;
+};
 
-    const filteredPosts =
-        selectedCategory === 'all'
-            ? mdxPosts
-            : mdxPosts.filter(
-                  post => post.frontmatter.post_category === selectedCategory
-              );
+const filterPosts = (posts, selectedCategory) => {
+    if (selectedCategory === 'all') {
+        return posts;
+    } else {
+        return posts.filter(
+            post => post.frontmatter.post_category === selectedCategory
+        );
+    }
+};
 
-    // Function to group posts by category
-    const groupPostsByCategory = (posts, includeLatest = false) => {
-        let categorizedPosts = posts.reduce((acc, node) => {
-            const category = node.frontmatter.post_category || 'other'; // Default to 'other'
-            if (!acc[category]) acc[category] = [];
-            acc[category].push(node);
-            return acc;
-        }, {});
+const groupPostsByCategory = (posts, includeLatest = false) => {
+    let categorizedPosts = posts.reduce((acc, node) => {
+        const category = node.frontmatter.post_category || 'other';
+        if (!acc[category]) acc[category] = [];
+        acc[category].push(node);
+        return acc;
+    }, {});
 
-        // Optionally include 'latest' posts
-        if (includeLatest) {
-            categorizedPosts = {
-                latest: posts.slice(0, 3),
-                ...categorizedPosts,
-            };
-        }
+    if (includeLatest) {
+        categorizedPosts = { latest: posts.slice(0, 3), ...categorizedPosts };
+    }
 
-        return categorizedPosts;
-    };
+    return categorizedPosts;
+};
 
+const PostList = () => {
+    const [selectedCategory, setSelectedCategory] = useState('all');
+    const allPosts = usePosts();
+    const filteredPosts = filterPosts(allPosts, selectedCategory);
     const includeLatest = selectedCategory === 'all';
     const postsByCategory = groupPostsByCategory(filteredPosts, includeLatest);
 
@@ -63,7 +65,6 @@ const PostList = () => {
         'energy',
     ];
 
-    // Lookup for category titles
     const categoryTitles = {
         latest: 'Latest Posts',
         data: 'Data science and engineering',
