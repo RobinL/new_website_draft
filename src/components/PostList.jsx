@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import CategoryPostList from './CategoryPostList';
+import CategoryFilter from './CategoryFilter';
 
 // GraphQL query logic
 const usePosts = () => {
@@ -73,14 +74,20 @@ const PostList = () => {
         probabilistic_linkage: 'Probabilistic record linkage',
     };
 
+    const allCategories = [
+        ...new Set(
+            allPosts.map(post => post.frontmatter.post_category || 'other')
+        ),
+    ];
+
     return (
         <div>
             <div>
-                <button onClick={() => setSelectedCategory('all')}>All</button>
-                <button onClick={() => setSelectedCategory('data')}>
-                    Data
-                </button>
-                {/* Add more buttons as needed */}
+                <CategoryFilter
+                    categories={allCategories}
+                    selectedCategory={selectedCategory}
+                    onSelectCategory={setSelectedCategory}
+                />
             </div>
             {headerOrder.map(
                 categoryKey =>
