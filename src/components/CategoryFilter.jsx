@@ -8,7 +8,7 @@ const CategoryFilter = ({ categories, selectedCategory, onSelectCategory }) => {
                 className={`px-2 py-1 mr-2 rounded-md transition ease-in-out duration-200 hover:shadow-lg capitalize ${
                     selectedCategory === 'all'
                         ? 'bg-gray-300 text-white'
-                        : 'bg-white text-blue-600 hover:bg-gray-200'
+                        : 'bg-white text-gray-600 hover:bg-gray-200'
                 }`}
                 onClick={() => onSelectCategory('all')}
             >
@@ -20,7 +20,7 @@ const CategoryFilter = ({ categories, selectedCategory, onSelectCategory }) => {
                     className={`px-2 py-1 mr-2 rounded-md transition ease-in-out duration-200 hover:shadow-lg capitalize ${
                         selectedCategory === category
                             ? 'bg-gray-300 text-white'
-                            : 'bg-white text-blue-600 hover:bg-gray-200'
+                            : 'bg-white text-gray-600 hover:bg-gray-200'
                     }`}
                     onClick={() => onSelectCategory(category)}
                 >

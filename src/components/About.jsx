@@ -12,14 +12,38 @@ const AboutMe = () => {
                 />
             </div>
             <div>
-                <p className="text-lg text-gray-600">
-                    Hi! I'm Robin. I'm a data scientist, and the lead author of{' '}
+                <p className="text-base text-gray-600">
+                    Hi, I'm Robin. I'm a data scientist, and the lead author of{' '}
                     <a
                         href="https://github.com/moj-analytical-services/splink"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         Splink
+                    </a>
+                    .
+                </p>
+                <p className="text-base text-gray-600 mb-4">
+                    I've previously led work on the{' '}
+                    <a href="https://mojdigital.blog.gov.uk/2018/04/05/pushing-the-boundaries-of-data-science-with-the-moj-analytical-platform/">
+                        MoJ's Analytical Platform
+                    </a>{' '}
+                    and prior to that, I was a government economist.
+                </p>
+                <p className="text-base text-gray-600 mb-4">
+                    I'm a trustee and secretary of{' '}
+                    <a
+                        href="https://www.givedirectly.org.uk/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GiveDirectly UK
+                    </a>
+                    , a charity that allows you to give money directly to people
+                    living in extreme poverty. Donate here:{' '}
+                    <a href="https://www.givedirectly.org/uk/">UK</a> |{' '}
+                    <a href="https://www.givedirectly.org.uk/donate">
+                        rest of world
                     </a>
                     .
                 </p>
