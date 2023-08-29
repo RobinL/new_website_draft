@@ -1,6 +1,15 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { FaTwitter, FaGithub, FaLinkedin, FaHome } from 'react-icons/fa';
+import {
+    FaTwitter,
+    FaGithub,
+    FaLinkedin,
+    FaHome,
+    FaInfoCircle,
+} from 'react-icons/fa';
+
+import ResponsiveLink from './responsive_icon';
+
 import '../styles/shimmer.css';
 const Header = () => {
     return (
@@ -12,22 +21,20 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="flex items-center space-x-3">
-                    <Link
-                        to="/about"
-                        className="text-base font-normal text-gray-600 hover:text-gray-700 transition ease-in duration-200"
-                    >
-                        About
-                    </Link>
-                    <Link
-                        to="/"
-                        className="text-base font-normal text-gray-600 hover:text-gray-700 transition ease-in duration-200"
-                    >
-                        Home
-                    </Link>
+                    <ResponsiveLink
+                        text="Home"
+                        IconComponent={FaHome}
+                        route="/"
+                    />
+                    <ResponsiveLink
+                        text="About"
+                        IconComponent={FaInfoCircle}
+                        route="/about"
+                    />
 
                     <a
                         href="https://twitter.com/robinlinacre"
-                        className="text-gray-600 hover:text-gray-700 transition ease-in duration-200"
+                        className="text-gray-600 hover:text-blue-700 transition ease-in duration-200"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -36,7 +43,7 @@ const Header = () => {
 
                     <a
                         href="https://github.com/robinl"
-                        className="text-gray-600 hover:text-gray-700 transition ease-in duration-200"
+                        className="text-gray-600 hover:text-blue-700 transition ease-in duration-200"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -44,7 +51,7 @@ const Header = () => {
                     </a>
                     <a
                         href="https://www.linkedin.com/in/robinlinacre/"
-                        className="text-gray-600 hover:text-gray-700 transition ease-in duration-200"
+                        className="text-gray-600 hover:text-blue-700 transition ease-in duration-200"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
