@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
+import CategoryPostList from './CategoryPostList';
 
 const PostList = () => {
+    const [selectedCategory, setSelectedCategory] = useState('all'); // Added this line
+
     const data = useStaticQuery(graphql`
         query {
             allMdx(sort: { fields: frontmatter___post_date, order: DESC }) {
@@ -22,18 +25,36 @@ const PostList = () => {
 
     const mdxPosts = data.allMdx.nodes;
 
-    // Group posts by category, including latest
-    const postsByCategory = {
-        latest: mdxPosts.slice(0, 3),
-        ...mdxPosts.reduce((acc, node) => {
+    const filteredPosts =
+        selectedCategory === 'all'
+            ? mdxPosts
+            : mdxPosts.filter(
+                  post => post.frontmatter.post_category === selectedCategory
+              );
+
+    // Function to group posts by category
+    const groupPostsByCategory = (posts, includeLatest = false) => {
+        let categorizedPosts = posts.reduce((acc, node) => {
             const category = node.frontmatter.post_category || 'other'; // Default to 'other'
             if (!acc[category]) acc[category] = [];
             acc[category].push(node);
             return acc;
-        }, {}),
+        }, {});
+
+        // Optionally include 'latest' posts
+        if (includeLatest) {
+            categorizedPosts = {
+                latest: posts.slice(0, 3),
+                ...categorizedPosts,
+            };
+        }
+
+        return categorizedPosts;
     };
 
-    // Order of the headers
+    const includeLatest = selectedCategory === 'all';
+    const postsByCategory = groupPostsByCategory(filteredPosts, includeLatest);
+
     const headerOrder = [
         'latest',
         'data',
@@ -53,30 +74,23 @@ const PostList = () => {
 
     return (
         <div>
-            {headerOrder.map(categoryKey => (
-                <div key={categoryKey} className="mb-6">
-                    <h2 className="text-xl font-bold mb-2">
-                        {categoryTitles[categoryKey] || categoryKey}
-                    </h2>
-                    <div className="">
-                        {postsByCategory[categoryKey]?.map(node => (
-                            <div
-                                key={node.frontmatter.title}
-                                className="pb-2 flex"
-                            >
-                                <div className="text-base text-gray-500 w-20 font-source-sans">
-                                    {node.frontmatter.post_date}
-                                </div>
-                                <div className="text-base">
-                                    <Link to={`${node.fields.slug}`}>
-                                        {node.frontmatter.title}
-                                    </Link>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            ))}
+            <div>
+                <button onClick={() => setSelectedCategory('all')}>All</button>
+                <button onClick={() => setSelectedCategory('data')}>
+                    Data
+                </button>
+                {/* Add more buttons as needed */}
+            </div>
+            {headerOrder.map(
+                categoryKey =>
+                    postsByCategory[categoryKey]?.length > 0 && (
+                        <CategoryPostList
+                            categoryKey={categoryKey}
+                            posts={postsByCategory[categoryKey]}
+                            categoryTitles={categoryTitles}
+                        />
+                    )
+            )}
         </div>
     );
 };
