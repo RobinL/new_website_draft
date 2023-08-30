@@ -7,6 +7,7 @@ const siteUrl = process.env.URL || `https://www.robinlinacre.com`
 
 
 module.exports = {
+  pathPrefix: "/new_website_draft",
   siteMetadata: {
     title: `> robinlinacre`,
     description: `Robin Linacre's blog: Data Science, Engineering and the Environment`,
