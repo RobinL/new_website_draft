@@ -88,7 +88,7 @@ module.exports = {
 
               return nodes.map(node => Object.assign({}, {
                 description: node.frontmatter.title,
-                date: node.frontmatter.date,
+                date: node.frontmatter.post_date,
                 url: site.siteMetadata.siteUrl + node.frontmatter.title,
                 guid: site.siteMetadata.siteUrl + node.frontmatter.title,
                 custom_elements: [{ "content:encoded": node.frontmatter.title }],
@@ -101,7 +101,7 @@ module.exports = {
                   frontmatter {
                     title
                     description
-                    date
+                    post_date
                   }
                 }
               }
