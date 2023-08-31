@@ -2,20 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 
 const ResponsiveLink = ({ text, IconComponent, route }) => {
-    const [windowWidth, setWindowWidth] = useState(
-        typeof window !== 'undefined' ? window.innerWidth : 0
-    );
+    const [windowWidth, setWindowWidth] = useState(null);
 
     useEffect(() => {
-        if (typeof window === 'undefined') return;
+        if (typeof window !== 'undefined') {
+            setWindowWidth(window.innerWidth);
 
-        const handleResize = () => setWindowWidth(window.innerWidth);
-        window.addEventListener('resize', handleResize);
+            const handleResize = () => setWindowWidth(window.innerWidth);
+            window.addEventListener('resize', handleResize);
 
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            };
+        }
     }, []);
+
+    if (windowWidth === null) return null;
 
     return (
         <div>
