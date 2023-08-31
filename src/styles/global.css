@@ -73,6 +73,10 @@ input[type='number'] {
     @apply w-16 text-center text-xs border border-gray-300 rounded p-1;
 }
 
+input[type='text'] {
+    @apply w-16 text-center text-xs border border-gray-300 rounded p-1;
+}
+
 select {
     @apply border border-gray-300 text-xs  rounded p-1 bg-white;
 }
