@@ -11,18 +11,19 @@ export function Layout({ children }) {
             mdx {
                 frontmatter {
                     description
+                    code_url
                 }
             }
         }
     `);
 
-    const { description } = data.mdx.frontmatter;
+    const { description, code_url } = data.mdx.frontmatter;
 
     return (
         <>
             <div className="text-base mx-auto w-full max-w-prose px-4">
                 <Header />
-
+                <div>{code_url}</div>
                 <div id="mdx-container-div">{children}</div>
                 <Footer />
             </div>
