@@ -20,6 +20,7 @@
     "@mdx-js/react": "^2.3.0",
     "@observablehq/runtime": "^5.8.2",
     "@robinl/birdsong-recordings": "https://api.observablehq.com/@robinl/birdsong-recordings@442.tgz?v=3",
+    "@robinl/interactive-blogging-with-observable-notebooks-and-gatsb": "https://api.observablehq.com/@robinl/interactive-blogging-with-observable-notebooks-and-gatsb@518.tgz?v=3",
     "@robinl/my-flights": "https://api.observablehq.com/@robinl/my-flights.tgz?v=3",
     "@robinl/the-carbon-impact-of-switiching-to-an-electric-car": "https://api.observablehq.com/@robinl/the-carbon-impact-of-switiching-to-an-electric-car@1053.tgz?v=3",
     "gatsby": "^5.11.0",
