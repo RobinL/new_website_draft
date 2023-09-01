@@ -8,11 +8,14 @@ const CategoryPostList = ({ categoryKey, posts = [], categoryTitles }) => (
         </h2>
         <div>
             {posts.map(node => (
-                <div key={node.frontmatter.title} className="pb-2 flex">
-                    <div className="text-base text-gray-500 w-20 font-source-sans">
+                <div
+                    key={node.frontmatter.title}
+                    className="grid grid-cols-[auto,1fr] pb-2 items-start"
+                >
+                    <div className="text-base text-gray-500 font-source-sans w-24">
                         {node.frontmatter.post_date}
                     </div>
-                    <div className="text-base">
+                    <div className="text-base min-w-0">
                         <Link to={`${node.fields.slug}`}>
                             {node.frontmatter.title}
                         </Link>
