@@ -22,6 +22,7 @@
     "@observablehq/runtime": "^5.8.2",
     "@robinl/bird-song-quiz": "https://api.observablehq.com/@robinl/bird-song-quiz@731.tgz?v=3",
     "@robinl/birdsong-recordings": "https://api.observablehq.com/@robinl/birdsong-recordings@442.tgz?v=3",
+    "@robinl/energy-usage-and-goods-imports-and-exports": "https://api.observablehq.com/@robinl/energy-usage-and-goods-imports-and-exports@1351.tgz?v=3",
     "@robinl/energy-usage-calculator-for-everyday-activities": "https://api.observablehq.com/@robinl/energy-usage-calculator-for-everyday-activities@561.tgz?v=3",
     "@robinl/filling-the-country-with-solar-panels": "https://api.observablehq.com/@robinl/filling-the-country-with-solar-panels@66.tgz?v=3",
     "@robinl/flight-distance-calculator": "https://api.observablehq.com/@robinl/flight-distance-calculator@1090.tgz?v=3",
