@@ -13,7 +13,21 @@ module.exports = {
     description: `Robin Linacre's blog: Data Science, Engineering and the Environment`,
     siteUrl: siteUrl
   },
-  plugins: ["gatsby-plugin-postcss", "gatsby-plugin-mdx",
+  plugins: ["gatsby-plugin-postcss",
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
@@ -38,6 +52,13 @@ module.exports = {
       options: {
         "name": "mdx",
         "path": "./src/mdx/"
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "name": "mdx",
+        "path": "./src/images/"
       }
     },
     {
