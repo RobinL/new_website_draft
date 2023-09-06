@@ -145,3 +145,7 @@ textarea {
 svg {
     @apply inline;
 }
+
+input[type='text'] {
+    width: auto;
+}

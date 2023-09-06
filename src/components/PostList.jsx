@@ -66,9 +66,9 @@ const PostList = () => {
     const headerOrder = [
         'latest',
         'data',
-        'other',
         'probabilistic_linkage',
         'energy',
+        'other',
     ];
 
     const categoryTitles = {
@@ -85,11 +85,22 @@ const PostList = () => {
         ),
     ];
 
+    const sortedCategories = allCategories.sort((a, b) => {
+        const indexA = headerOrder.indexOf(a);
+        const indexB = headerOrder.indexOf(b);
+
+        if (indexA === -1 && indexB === -1) return 0;
+        if (indexA === -1) return 1;
+        if (indexB === -1) return -1;
+
+        return indexA - indexB;
+    });
+
     return (
         <div>
             <div>
                 <CategoryFilter
-                    categories={allCategories}
+                    categories={sortedCategories}
                     selectedCategory={selectedCategory}
                     onSelectCategory={setSelectedCategory}
                 />
