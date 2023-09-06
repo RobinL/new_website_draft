@@ -19,7 +19,7 @@ const Header = () => {
                     <div className="text-base font-mono font-semibold shimmer-text">
                         <Link
                             to="/"
-                            className="text-base font-mono font-semibold shimmer-text"
+                            className="text-base font-mono font-bold shimmer-text"
                         >
                             &gt;robinlinacre
                         </Link>

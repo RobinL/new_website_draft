@@ -2,8 +2,6 @@ import React from 'react';
 import { Highlight, themes } from 'prism-react-renderer';
 
 const CodeBlock = ({ children, className }) => {
-    debugger;
-
     if (!className) {
         return <code>{children}</code>;
     }
