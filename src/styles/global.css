@@ -122,3 +122,18 @@ select {
 #vg-tooltip-element.vg-tooltip td.value {
     @apply px-0.5 py-0.5 text-left m-0;
 }
+
+input[type='submit'],
+input[type='reset'],
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='search'],
+input[type='number'],
+input[type='file'] {
+    @apply text-gray-700 p-1 rounded text-left;
+}
+
+input[type='button'] {
+    @apply bg-gray-200 text-gray-700 p-1 rounded;
+}
