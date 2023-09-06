@@ -2,13 +2,13 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
+        <div className="text-center">
             <hr className="border-gray-300" />
             <footer className="mt-4">
-                <p className="text-base text-gray-700">
+                <p className="text-sm text-gray-500">
                     <a href="/">Back home</a>
                 </p>
-                <p className="text-base text-gray-700">
+                <p className="text-sm text-gray-500">
                     This site is built using{' '}
                     <a href="https://observablehq.com">Observable HQ</a> and{' '}
                     <a href="https://gatsbyjs.org">Gatsby.js</a>. Source code{' '}

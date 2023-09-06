@@ -6,11 +6,11 @@ const CodeBlock = ({ children, className }) => {
         return <code>{children}</code>;
     }
     const language = className.replace(/language-/, '');
-
+    debugger;
     return (
         <div className="mb-8 mt-8">
             <Highlight
-                code={children}
+                code={children.trim()}
                 language={language}
                 theme={themes.vsDark}
             >
