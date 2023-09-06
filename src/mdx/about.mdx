@@ -1,9 +1,14 @@
 export { Layout as default } from '../components/Layout';
 import HeadShot from '../components/HeadShot';
+import RotatingText from 'react-rotating-text';
 
 <HeadShot />
 
-Hi, I'm Robin. I'm a data scientist, and the lead author of [Splink](https://github.com/moj-analytical-services/splink), a Python library for record linkage.
+Hi, I'm Robin. I'm a <RotatingText  style={{ color: '#008000', backgroundColor: 'yellow' }} items={['data scientist', 'data engineer', 'dad', 'economist']}  />.
+
+
+
+I'm the lead author of [Splink](https://github.com/moj-analytical-services/splink), a Python library for record linkage.
 
 I've previously led work on the [MoJ's Analytical Platform](https://mojdigital.blog.gov.uk/2018/04/05/pushing-the-boundaries-of-data-science-with-the-moj-analytical-platform/) and also used to work as a government economist.
 
