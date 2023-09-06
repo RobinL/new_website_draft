@@ -1,12 +1,13 @@
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
-
+import remarkGfm from 'remark-gfm';
+import * as dotenv from 'dotenv';
+dotenv.config({ path: '.env' });
 const siteUrl = process.env.URL || `https://www.robinlinacre.com`
 
 
 
-module.exports = {
+
+
+const config = {
   pathPrefix: "/new_website_draft",
   siteMetadata: {
     title: `> robinlinacre`,
@@ -18,13 +19,18 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        mdxOptions: {
+          remarkPlugins: [remarkGfm]
+        },
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1200,
             },
+
           },
+
         ],
       },
     },
@@ -64,7 +70,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-page-creator`,
       options: {
-        path: `${__dirname}/src/mdx`,
+        path: `./src/mdx`,
       },
     },
     {
@@ -137,3 +143,5 @@ module.exports = {
     }
   ]
 };
+
+export default config;

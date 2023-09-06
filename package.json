@@ -12,7 +12,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "version": "gatsby -v"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -41,6 +42,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-vega": "^7.6.0",
+    "remark-gfm": "^3.0.1",
     "typeface-source-sans-pro": "^1.1.13"
   },
   "devDependencies": {
