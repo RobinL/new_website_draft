@@ -56,6 +56,11 @@ blockquote {
 blockquote p {
     @apply mb-0;
 }
+
+code {
+    @apply bg-gray-100 text-gray-800 border border-gray-200 p-0.5 rounded text-sm;
+}
+
 table {
     @apply w-full border-collapse bg-white text-sm mb-4;
 }
