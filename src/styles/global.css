@@ -94,7 +94,7 @@ select {
 }
 
 .observablehq {
-    @apply mb-1;
+    @apply mb-4;
 }
 
 .observablehq code {
@@ -131,13 +131,17 @@ input[type='email'],
 input[type='search'],
 input[type='number'],
 input[type='file'] {
-    @apply text-sm text-gray-700 p-1 rounded text-left border border-gray-300 mr-2 mt-2;
+    @apply text-xs text-gray-700 p-1 rounded text-left border border-gray-300 mr-2 mt-2;
 }
 
 input[type='button'] {
-    @apply text-sm bg-gray-200 text-gray-700 p-1 rounded border border-gray-300 mr-2 mt-2;
+    @apply text-xs bg-gray-200 text-gray-700 p-1 rounded border border-gray-300 mr-2 mt-2;
 }
 
 textarea {
     @apply text-sm text-gray-700 p-1 rounded text-left border border-gray-300 mr-2 mt-2;
+}
+
+svg {
+    @apply inline;
 }

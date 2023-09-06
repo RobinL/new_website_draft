@@ -64,7 +64,7 @@ const Header = () => {
                     </a>
                 </div>
             </div>
-            <hr className="border-gray-300 mb-6" />
+            <hr className="border-gray-300 mb-4" />
         </div>
     );
 };
