@@ -131,9 +131,13 @@ input[type='email'],
 input[type='search'],
 input[type='number'],
 input[type='file'] {
-    @apply text-gray-700 p-1 rounded text-left;
+    @apply text-sm text-gray-700 p-1 rounded text-left border border-gray-300 mr-2 mt-2;
 }
 
 input[type='button'] {
-    @apply bg-gray-200 text-gray-700 p-1 rounded;
+    @apply text-sm bg-gray-200 text-gray-700 p-1 rounded border border-gray-300 mr-2 mt-2;
+}
+
+textarea {
+    @apply text-sm text-gray-700 p-1 rounded text-left border border-gray-300 mr-2 mt-2;
 }
