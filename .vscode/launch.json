@@ -14,7 +14,8 @@
             ],
             "stopOnEntry": false,
             "sourceMaps": false,
-            "runtimeExecutable": "/Users/robinlinacre/.nvm/versions/node/v20.5.0/bin/node"
+            "runtimeExecutable": "/Users/robinlinacre/.nvm/versions/node/v20.5.0/bin/node",
+
         }
     ]
 }
