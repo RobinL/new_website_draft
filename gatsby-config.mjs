@@ -61,6 +61,13 @@ const config = {
       }
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "name": "mdx",
+        "path": "./src/images/"
+      }
+    },
+    {
       resolve: `gatsby-plugin-page-creator`,
       options: {
         path: `./src/mdx`,
