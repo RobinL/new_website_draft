@@ -74,9 +74,9 @@ const PostList = () => {
     const categoryTitles = {
         latest: 'Latest Posts',
         data: 'Data science and engineering',
+        probabilistic_linkage: 'Probabilistic record linkage',
         energy: 'Energy and climate change',
         other: 'Other',
-        probabilistic_linkage: 'Probabilistic record linkage',
     };
 
     const allCategories = [
