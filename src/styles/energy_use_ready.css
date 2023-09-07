@@ -1,0 +1,15 @@
+.observablehq {
+    margin-bottom: 0rem;
+}
+
+.observablehq > svg {
+    margin-bottom: 2.5rem;
+}
+
+input[type='number'] {
+    min-width: 2.5rem;
+}
+
+.observablehq h2 {
+    margin-bottom: 0rem;
+}
