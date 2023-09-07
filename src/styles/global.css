@@ -145,3 +145,7 @@ textarea {
 input[type='text'] {
     width: auto;
 }
+
+svg {
+    @apply inline;
+}
