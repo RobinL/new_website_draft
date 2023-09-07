@@ -25,3 +25,17 @@
         background-position: 0% 0;
     }
 }
+
+.shimmer-text:hover {
+    animation: shimmer-fast 2s linear infinite;
+}
+
+@keyframes shimmer-fast {
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: 0% 0;
+    }
+}
