@@ -142,10 +142,6 @@ textarea {
     @apply text-sm text-gray-700 p-1 rounded text-left border border-gray-300 mr-2 mt-2;
 }
 
-svg {
-    @apply inline;
-}
-
 input[type='text'] {
     width: auto;
 }
