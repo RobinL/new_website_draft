@@ -8,18 +8,24 @@ code_url: "https://observablehq.com/@robinl/flight-distance-calculator/"
 
 export { MDXLayout as default } from '../components/MDXLayout';
 
+import styles from '../styles/flight_distance_calc.css'
+
 import notebook from '@robinl/flight-distance-calculator';
-import ObservableNotebook from '../components/ObservableNotebook';
 
-export const output_order = [
-  'title',
-  'viewof flights_list',
-  'blurb',
-  'table_of_distances',
-  'download_as_csv',
-  'flights_chart',
-  'file_upload_blurb',
-  'viewof upload'
-];
+import  {ObservableCell,  WithObservableProvider}   from '../components/ObservableCells';
 
-<ObservableNotebook notebook={notebook} cells={output_order} />
+<WithObservableProvider notebook={notebook}>
+
+
+  <ObservableCell cellName="title" />
+  <ObservableCell cellName="viewof flights_list" />
+  <ObservableCell cellName="blurb" />
+  <ObservableCell cellName="table_of_distances" />
+  <ObservableCell cellName="download_as_csv" />
+  <ObservableCell cellName="flights_chart" />
+  <ObservableCell cellName="file_upload_blurb" />
+  <ObservableCell cellName="viewof upload" />
+
+
+</WithObservableProvider>
+
