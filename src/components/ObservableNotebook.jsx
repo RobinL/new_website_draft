@@ -5,14 +5,14 @@ const mountId = 'mdx-container-div';
 
 const stdlib = new Library();
 
-const library = Object.assign({}, stdlib, { width });
+const library = Object.assign({}, stdlib, { width: width_mdx });
 
-function width() {
+function width_mdx() {
     return stdlib.Generators.observe(notify => {
-        let width = notify(document.getElementById(mountId).clientWidth);
+        let width1 = notify(document.getElementById(mountId).clientWidth);
         function resized() {
-            let width1 = document.getElementById(mountId).clientWidth;
-            if (width1 !== width) notify((width = width1));
+            let width2 = document.getElementById(mountId).clientWidth;
+            if (width2 !== width1) notify((width1 = width2));
         }
 
         window.addEventListener('resize', resized);
