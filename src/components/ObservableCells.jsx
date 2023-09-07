@@ -9,25 +9,6 @@ import { Runtime, Inspector, Library } from '@observablehq/runtime';
 
 const ObservableRuntimeContext = createContext(null);
 
-const mountId = 'mdx-container-div';
-
-const stdlib = new Library();
-
-const library = Object.assign({}, stdlib, { width });
-
-function width() {
-    return stdlib.Generators.observe(notify => {
-        let width = notify(document.getElementById(mountId).clientWidth);
-        function resized() {
-            let width1 = document.getElementById(mountId).clientWidth;
-            if (width1 !== width) notify((width = width1));
-        }
-
-        window.addEventListener('resize', resized);
-        return () => window.removeEventListener('resize', resized);
-    });
-}
-
 export function ObservableProvider({ notebook, children }) {
     const [sharedRefs, setSharedRefs] = useState({});
     const runtime = new Runtime(Object.assign({}, new Library(), { width }));
