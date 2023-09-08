@@ -35,24 +35,24 @@ const TutorialNav = ({ frontmatter }) => {
                 );
 
                 return (
-                    <div className="bg-blue-100 border-t border-blue-300 py-4 mt-8 rounded-lg shadow-md">
+                    <div className="bg-blue-100  p-4 mt-8  rounded-lg ">
                         <div className="container mx-auto">
-                            <div className="text-blue-800 font-semibold text-lg mb-2">
-                                Probabilistic Linkage Tutorials
+                            <div className="text-blue-800 font-semibold text-base mb-2">
+                                Tutorial Navigation:
                             </div>
-                            <ul className="space-y-2">
+                            <ul className="space-y-2 text-sm">
                                 {sortedTutorials.map(edge => (
                                     <li
                                         key={
                                             edge.node.frontmatter
                                                 .tutorial_number
                                         }
-                                        className="text-blue-600"
+                                        className="text-blue-600 text-sm"
                                     >
                                         {tutorial_number ===
                                         edge.node.frontmatter
                                             .tutorial_number ? (
-                                            <span className="font-bold">
+                                            <span className="font-bold text-sm">
                                                 {edge.node.frontmatter.title}
                                             </span>
                                         ) : (
