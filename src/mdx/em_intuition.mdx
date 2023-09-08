@@ -5,7 +5,7 @@ post_date: "2022-10-14"
 post_category: "probabilistic_linkage"
 code_url: "https://github.com/RobinL/robinl.github.io/blob/dev/src/mdx/em_intuition.mdx"
 prob_linkage_category: "tutorial"
-tutorial_number: 4
+tutorial_number: 5
 ---
 
 export { MDXLayout as default } from '../components/MDXLayout';
@@ -48,10 +48,7 @@ The key to the EM approach is leveraging the fact that matching and non-matching
 
 This results in a bimodal distribution of record comparisons:
 
-<img
-  src={decisionBoundary}
-  alt="Conceptual diagram of the bimodal distribution of pairwise record comparisons. Diagram by author."
-/>
+![Conceptual diagram of the bimodal distribution of pairwise record comparisons. Diagram by author.](./em_intuition/decision_boundary.png)
 
 This separation between matches and non-matches means it’s relatively easy to come up with a rough decision rule that is able to correctly identify most matches and most non-matches. For instance, we could simply count the number of columns that match (first name surname, and so on), and predict a match for any record pair where more than half of them match.
 
@@ -59,9 +56,9 @@ This is fundamental to resolving our paradox: We've just found a way to designat
 
 Now that we have designated each record comparison as a match or a non match, we can use this information to estimate the implied m and u parameters of the model. And this enables us to iteratively improve this decision rule, using the following algorithm:
 
-**Expectation step: **Use the estimated model parameters to predict which record comparisons are matches
+**Expectation step:** Use the estimated model parameters to predict which record comparisons are matches
 
-**Maximisation step: **Use the predictions to re-estimate the model parameters
+**Maximisation step:** Use the predictions to re-estimate the model parameters
 
 In this example, our initial decision rule worked by simply counting the number of columns with matching information. As such, we gave equal weight to every column. Clearly there is room for improvement in this rule — in reality a match on a postcode column is more important than a match on gender.
 
