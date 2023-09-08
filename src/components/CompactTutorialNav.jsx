@@ -45,26 +45,35 @@ const CompactTutorialNav = ({ frontmatter }) => {
                 )?.node?.fields?.slug;
 
                 return (
-                    <div className="bg-gray-100 p-2 mt-2 mb-2 italic rounded-md  text-gray-600 text-xs">
-                        <span>
-                            This is part {tutorial_number} of the tutorial.
-                        </span>
-                        {prevExists && (
-                            <Link
-                                to={prevSlug}
-                                className="ml-4 text-blue-500 hover:underline"
-                            >
-                                &larr; Previous article
-                            </Link>
-                        )}
-                        {nextExists && (
-                            <Link
-                                to={nextSlug}
-                                className="ml-4 text-blue-500 hover:underline"
-                            >
-                                Next article &rarr;
-                            </Link>
-                        )}
+                    <div className="bg-gray-100 p-2 mt-2 mb-2 italic rounded-md text-gray-600 text-xs">
+                        <div className="flex justify-between">
+                            <div className="w-1/3 text-left">
+                                {prevExists && (
+                                    <Link
+                                        to={prevSlug}
+                                        className="text-blue-500 hover:underline"
+                                    >
+                                        &larr; Previous article
+                                    </Link>
+                                )}
+                            </div>
+                            <div className="w-1/3 text-center">
+                                <span>
+                                    This is part {tutorial_number} of the
+                                    tutorial
+                                </span>
+                            </div>
+                            <div className="w-1/3 text-right">
+                                {nextExists && (
+                                    <Link
+                                        to={nextSlug}
+                                        className="text-blue-500 hover:underline"
+                                    >
+                                        Next article &rarr;
+                                    </Link>
+                                )}
+                            </div>
+                        </div>
                     </div>
                 );
             }}

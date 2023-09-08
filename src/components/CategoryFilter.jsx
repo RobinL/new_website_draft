@@ -24,7 +24,7 @@ const CategoryFilter = ({ categories, selectedCategory, onSelectCategory }) => {
                     }`}
                     onClick={() => onSelectCategory(category)}
                 >
-                    {category}
+                    {category.replace(/_/g, ' ')}
                 </button>
             ))}
         </div>
