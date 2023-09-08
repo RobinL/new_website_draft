@@ -35,12 +35,12 @@ const TutorialNav = ({ frontmatter }) => {
                 );
 
                 return (
-                    <div className="bg-blue-100  p-4 mt-8  rounded-lg ">
+                    <div className="bg-blue-100  p-4 mt-8  mb-4 rounded-lg ">
                         <div className="container mx-auto">
                             <div className="text-blue-800 font-semibold text-base mb-2">
-                                Tutorial Navigation:
+                                Probabilistic Linkage Tutorial Navigation:
                             </div>
-                            <ul className="space-y-2 text-sm">
+                            <ol className="space-y-2 text-sm">
                                 {sortedTutorials.map(edge => (
                                     <li
                                         key={
@@ -65,7 +65,7 @@ const TutorialNav = ({ frontmatter }) => {
                                         )}
                                     </li>
                                 ))}
-                            </ul>
+                            </ol>
                         </div>
                     </div>
                 );

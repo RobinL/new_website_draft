@@ -13,6 +13,7 @@ export { MDXLayout as default } from '../components/MDXLayout';
 import notebook from '@robinl/86fc30325e4106c4';
 import ObservableNotebook from '../components/ObservableNotebook';
 import TutorialNav from '../components/TutorialNav';
+import CompactTutorialNav from '../components/CompactTutorialNav';
 
 export const output_order = [
   "title",
@@ -45,6 +46,9 @@ export const output_order = [
   "para_19",
   "css_styles"
 ];
+
+
+<CompactTutorialNav frontmatter={props.pageContext.frontmatter} />
 
 <ObservableNotebook notebook={notebook} cells={output_order} />
 

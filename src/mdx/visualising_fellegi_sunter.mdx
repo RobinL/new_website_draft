@@ -14,6 +14,7 @@ import notebook from '@robinl/visualising-fellegi-sunter';
 import ObservableNotebook from '../components/ObservableNotebook';
 
 import TutorialNav from '../components/TutorialNav';
+import CompactTutorialNav from '../components/CompactTutorialNav';
 
 export const output_order = [
   "additional_styles",
@@ -55,5 +56,6 @@ export const output_order = [
   "css_styles"
 ];
 
+<CompactTutorialNav frontmatter={props.pageContext.frontmatter} />
 <ObservableNotebook notebook={notebook} cells={output_order} />
 <TutorialNav frontmatter={props.pageContext.frontmatter} />
