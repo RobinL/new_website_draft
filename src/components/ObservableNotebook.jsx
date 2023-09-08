@@ -20,7 +20,7 @@ function width_mdx() {
     });
 }
 
-function ObservableNotebook({ notebook, cells }) {
+function ObservableNotebook({ notebook, cells, customClassName }) {
     const refs = useRef(cells.map(() => React.createRef()));
 
     useEffect(() => {
@@ -35,11 +35,11 @@ function ObservableNotebook({ notebook, cells }) {
     }, [notebook, cells]);
 
     return (
-        <>
+        <div className={customClassName}>
             {refs.current.map((ref, index) => (
                 <div key={index} ref={ref} />
             ))}
-        </>
+        </div>
     );
 }
 

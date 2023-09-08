@@ -9,13 +9,24 @@ const components = {
     code: CodeBlock,
 };
 
-// https://www.gatsbyjs.com/docs/how-to/routing/customizing-components/
-
 export function MDXLayout({ children, pageContext }) {
     const { frontmatter } = pageContext;
 
     return (
         <Layout>
+            <MDXProvider components={components}>
+                <PostInfo frontmatter={frontmatter} />
+                <div id="mdx-container-div">{children}</div>
+            </MDXProvider>
+        </Layout>
+    );
+}
+
+export function MDXLayoutWide({ children, pageContext }) {
+    const { frontmatter } = pageContext;
+
+    return (
+        <Layout className={'text-base mx-auto w-full max-w-screen-lg px-4'}>
             <MDXProvider components={components}>
                 <PostInfo frontmatter={frontmatter} />
                 <div id="mdx-container-div">{children}</div>

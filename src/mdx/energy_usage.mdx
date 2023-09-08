@@ -11,7 +11,7 @@ export { MDXLayout as default } from '../components/MDXLayout';
 
 import notebook from '@robinl/energy-usage-calculator-for-everyday-activities';
 import ObservableNotebook from '../components/ObservableNotebook';
-import styles from '../styles/energy_use_ready.css'
+import styles from '../styles/energy_usage.css'
 
 export const output_order = [
   "title",
@@ -55,4 +55,5 @@ export const output_order = [
   "energy_use_treemap"
 ];
 
-<ObservableNotebook notebook={notebook} cells={output_order} />
+
+<ObservableNotebook notebook={notebook} cells={output_order} customClassName={"energy_usage"}/>
