@@ -8,8 +8,11 @@ post_category: "data"
 
 
 export { MDXLayout as default } from '../components/MDXLayout';
+import { SEO } from "../components/SEO"
+export const Head = ( props ) => <SEO frontmatter={props.pageContext.frontmatter} />;
 
 import Subtitle from "../components/Subtitle"
+
 
 
 # Splink 3: Fast, accurate and scalable data deduplication and record linkage in Python
@@ -67,3 +70,4 @@ We are grateful to all our users who have contributed and provided feedback. Ple
 Or I’m [@robinlinacre](https://twitter.com/RobinLinacre) on Twitter.
 
 We’d be particularly interested to work with anyone who’d like to add support for new SQL backends such as Postgres, Google BigQuery etc.
+
