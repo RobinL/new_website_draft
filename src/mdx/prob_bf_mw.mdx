@@ -6,6 +6,8 @@ post_category: "probabilistic_linkage"
 description: "Visualising the correspondence between match weights, probabilities, Bayes factors and their intuitive explanations"
 ---
 export { MDXLayoutWide as default } from '../components/MDXLayout';
+import { SEO } from "../components/SEO"
+export const Head = ( props ) => <SEO frontmatter={props.pageContext.frontmatter} />;
 
 import { Vega, VegaLite } from "react-vega"
 import prob_bf_mw from "./prob_bf_mw/prob_bf_mw.json"
