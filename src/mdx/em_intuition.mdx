@@ -9,6 +9,8 @@ tutorial_number: 5
 ---
 
 export { MDXLayout as default } from '../components/MDXLayout';
+import { SEO } from "../components/SEO"
+export const Head = ( props ) => <SEO frontmatter={props.pageContext.frontmatter} />;
 
 import Subtitle from "../components/Subtitle"
 import decisionBoundary from "./em_intuition/decision_boundary.png"

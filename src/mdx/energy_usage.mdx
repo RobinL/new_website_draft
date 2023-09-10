@@ -7,6 +7,8 @@ description: "Energy usage calculator for everyday activities"
 ---
 
 export { MDXLayout as default } from '../components/MDXLayout';
+import { SEO } from "../components/SEO"
+export const Head = ( props ) => <SEO frontmatter={props.pageContext.frontmatter} />;
 
 import notebook from '@robinl/energy-usage-calculator-for-everyday-activities';
 import ObservableNotebook from '../components/ObservableNotebook';

@@ -8,6 +8,8 @@ description: "How good is Splink: Are more complex probabilistic linkage models 
 ---
 
 export { MDXLayout as default } from '../components/MDXLayout';
+import { SEO } from "../components/SEO"
+export const Head = ( props ) => <SEO frontmatter={props.pageContext.frontmatter} />;
 
 import { Vega, VegaLite } from "react-vega"
 

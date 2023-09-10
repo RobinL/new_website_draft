@@ -6,6 +6,8 @@ post_category: non_blog_post
 ---
 
 export { Layout as default } from '../components/Layout';
+import { SEO } from "../components/SEO"
+export const Head = ( props ) => <SEO frontmatter={props.pageContext.frontmatter} />;
 import HeadShot from '../components/HeadShot';
 import RotatingText from 'react-rotating-text';
 
