@@ -7,6 +7,8 @@ code_url: "https://observablehq.com/@robinl/the-carbon-impact-of-switiching-to-a
 ---
 
 export { MDXLayout as default } from '../components/MDXLayout';
+import { SEO } from "../components/SEO"
+export const Head = ( props ) => <SEO frontmatter={props.pageContext.frontmatter} />;
 
 import notebook from '@robinl/the-carbon-impact-of-switiching-to-an-electric-car';
 import ObservableNotebook from '../components/ObservableNotebook';

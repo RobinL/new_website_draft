@@ -8,6 +8,8 @@ prob_linkage_category: "archive"
 ---
 
 export { MDXLayout as default } from '../components/MDXLayout';
+import { SEO } from "../components/SEO"
+export const Head = ( props ) => <SEO frontmatter={props.pageContext.frontmatter} />;
 
 import notebook from '@robinl/unsupervised-probabalistic-data-matching-using-the-expec';
 import ObservableNotebook from '../components/ObservableNotebook';

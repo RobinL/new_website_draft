@@ -7,6 +7,8 @@ code_url: "https://github.com/RobinL/robinl.github.io/blob/dev/src/mdx/demystify
 ---
 
 export { MDXLayout as default } from '../components/MDXLayout';
+import { SEO } from "../components/SEO"
+export const Head = ( props ) => <SEO frontmatter={props.pageContext.frontmatter} />;
 
 import Subtitle from '../components/Subtitle';
 
