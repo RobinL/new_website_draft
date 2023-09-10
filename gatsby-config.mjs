@@ -10,9 +10,11 @@ const siteUrl = process.env.URL || `https://www.robinlinacre.com`
 const config = {
   pathPrefix: "/new_website_draft",
   siteMetadata: {
-    title: `> robinlinacre`,
-    description: `Robin Linacre's blog: Data Science, Engineering and the Environment`,
-    siteUrl: siteUrl
+    title: `Robin Linacre's blog`,
+    description: `Probabilistic record linkage, Data Deduplication, Data Science, Engineering and the Environment`,
+    siteUrl: siteUrl,
+    twitterUsername: `@robinlinacre`,
+    image: `/gatsby-icon.png`,
   },
   plugins: ["gatsby-plugin-postcss",
     `gatsby-plugin-sharp`,
