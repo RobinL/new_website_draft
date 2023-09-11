@@ -82,32 +82,41 @@ const config = {
       options: {
         query: `
         {
-          allSitePage {
-            nodes {
-              path
+          allMdx {
+            edges {
+              node {
+                frontmatter {
+                  title
+                  post_date
+                  code_url
+                  description
+                }
+                fields {
+                  slug
+                }
+              }
             }
           }
         }
-        `
-        ,
+        `,
         resolveSiteUrl: () => siteUrl,
-        resolvePages: ({
-          allSitePage: { nodes: allPages }
-        }) => {
-
-          return allPages.map(page => {
-            return { ...page }
-          })
+        resolvePages: ({ allMdx: { edges: allMdxPages } }) => {
+          return allMdxPages.map(({ node }) => {
+            return {
+              path: node.fields.slug,
+              frontmatter: node.frontmatter
+            };
+          });
         },
-        serialize: ({ path }) => {
-          console.log(path)
+        serialize: ({ path, frontmatter }) => {
           return {
             url: path,
-
-          }
+            lastmod: frontmatter.post_date,
+          };
         },
       },
     },
+
     {
       resolve: `gatsby-plugin-feed`,
       options: {
