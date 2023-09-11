@@ -114,37 +114,41 @@ const config = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.nodes
+                .filter(node => node.frontmatter.post_category !== "non_blog_post")
+                .map(node => Object.assign({}, {
+                  title: node.frontmatter.title,
+                  description: node.frontmatter.description,
+                  date: node.frontmatter.post_date,
+                  url: `${site.siteMetadata.siteUrl}${node.fields.slug}`,
+                  guid: `${site.siteMetadata.siteUrl}${node.fields.slug}`,
 
-              const nodes = allMdx.nodes
-
-              return nodes.map(node => Object.assign({}, {
-                description: node.frontmatter.title,
-                date: node.frontmatter.post_date,
-                url: site.siteMetadata.siteUrl + node.frontmatter.title,
-                guid: site.siteMetadata.siteUrl + node.frontmatter.title,
-                custom_elements: [{ "content:encoded": node.frontmatter.title }],
-              }))
+                }));
             },
             query: `
             {
-              allMdx {
+              allMdx(filter: {frontmatter: {post_category: {ne: "non_blog_post"}}}) {
                 nodes {
+                  fields {
+                    slug
+                  }
                   frontmatter {
                     title
                     description
                     post_date
+                    post_category
                   }
                 }
               }
             }
-
             `,
             output: "/rss.xml",
             title: "Your Site's RSS Feed",
           },
         ],
-      },
+      }
     }
+
   ]
 };
 
