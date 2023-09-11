@@ -50,9 +50,11 @@ const config = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [
-          "GA-TRACKING-ID", // Google Analytics / GA
-
-        ]
+          "UA-149828982-1"
+        ],
+        gtagConfig: {
+          anonymize_ip: true,
+        },
       }
     },
     {
