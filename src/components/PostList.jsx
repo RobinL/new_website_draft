@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import CategoryPostList from './CategoryPostList';
 import CategoryFilter from './CategoryFilter';
 
-// GraphQL query logic
 const usePosts = () => {
     const data = useStaticQuery(graphql`
         query {

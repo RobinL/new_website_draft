@@ -8,7 +8,7 @@ const CategoryPostList = ({ categoryKey, posts = [], categoryTitles }) => (
         </h2>
         {categoryKey === 'probabilistic_linkage' && (
             <div className="mb-2 italic">
-                <Link to="/probabilistic_linkage_home/">
+                <Link to="/probabilistic_linkage/">
                     Click here for probabilistic linkage training materials
                     homepage.
                 </Link>
